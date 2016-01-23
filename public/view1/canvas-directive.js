@@ -10,7 +10,8 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
         link: function (scope, elem, attrs) {
             var canvas = new fabric.Canvas(attrs.id, {
                 isDrawingMode: true,
-                backgroundColor : "#fff"
+                backgroundColor : "#414476"
+
             });
 
             $http.get('/link').then(function(responce){
@@ -23,6 +24,8 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                     left: 0
                 }));
             });
+
+
 
             canvas.stateful = false;
 
@@ -124,8 +127,8 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                         var local_image = new fabric.Image(local_img);
                         console.log("Stamping", e.e.clientX, e.e.clientY);
                         local_image.set({
-                            top: e.e.clientY - 121,
-                            left: e.e.clientX - 105,
+                            top: e.e.offsetY,
+                            left: e.e.offsetX,
                             height:
                             ImageService.downScale(local_img).height,
                             width:
