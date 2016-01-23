@@ -4,15 +4,31 @@
 
 var v1 = angular.module('myApp.view1');
 
-v1.directive('canvasDirective', ['ImageService', function(ImageService) {
+v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageService) {
     return {
         restrict: 'AE',
         link: function (scope, elem, attrs) {
             var canvas = new fabric.Canvas(attrs.id, {
-                isDrawingMode: true
+                isDrawingMode: true,
+                backgroundColor : "#fff"
             });
             canvas.stateful = false;
             //fabric.Object.prototype.transparentCorners = false;
+
+            scope.get = function() {
+                console.log('!!!');
+                return canvas.toDataURL({format: 'jpeg', quality: 0.3});
+
+            };
+            scope.send = function() {
+                var url = canvas.toDataURL({format: 'jpeg', quality: 1});
+                console.log(JSON.stringify(url));
+                /*   var img = document.createElement('img');
+                 img.src = url;
+                 ImageService.image = img;*/
+
+                $http.post('/link', {data: url}).then(function(){console.log('Sent successfully!')}, function(){console.log('sth went wrong')});
+            };
 
             scope.Clear = function() {
                 canvas.clear();
@@ -53,8 +69,8 @@ v1.directive('canvasDirective', ['ImageService', function(ImageService) {
                     img.onload = function () {
                         image = new fabric.Image(img);
                         image.set({
-                            height: ImageService.scaleSize(200, 110, img.width, img.height)[1],
-                            width: ImageService.scaleSize(200, 110, img.width, img.height)[0],
+                            height: ImageService.downScale(img).height,
+                            width: ImageService.downScale(img).width
                         });
                         canvas.add(image);
                         scope.is_hanging = true;
@@ -74,7 +90,6 @@ v1.directive('canvasDirective', ['ImageService', function(ImageService) {
 
 
             canvas.on('mouse:move', function(e) {
-                // console.log("MOUSEMOVED", e.e.offsetX, e.e.offsetY );
                 if (scope.is_hanging == true) {
                     image.set({
                         left:   e.e.offsetX,
@@ -97,11 +112,11 @@ v1.directive('canvasDirective', ['ImageService', function(ImageService) {
                         console.log("Stamping", e.e.clientX, e.e.clientY);
                         local_image.set({
                             top: e.e.clientY - 121,
-                            left: e.e.clientX - 105,
+                            left: e.e.clientX - 120,
                             height:
-                                ImageService.scaleSize(200, 110, local_img.width, local_img.height)[1],
+                            ImageService.downScale(local_img).height,
                             width:
-                                ImageService.scaleSize(200, 110, local_img.width, local_img.height)[0]
+                            ImageService.downScale(local_img).width
                         });
 
                         canvas.add(local_image);
