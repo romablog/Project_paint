@@ -14,5 +14,6 @@ module.exports = function(app) {
 
   app.post('/logout', require('./logout').post);
   app.post('/link', require('./link').post);
+  app.get('/link', require('./link').get);
 
 };
