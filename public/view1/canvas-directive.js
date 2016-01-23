@@ -14,9 +14,14 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
             });
 
             $http.get('/link').then(function(responce){
+                console.log(responce);
                 var savedCanvas = new Image();
-                savedCanvas.src = responce;
-                canvas.add(new fabric.Image(savedCanvas));
+                //savedCanvas.setAttribute('crossOrigin', 'anonymous');
+                savedCanvas.src = responce.data;
+                canvas.add(new fabric.Image(savedCanvas,{
+                    top: 0 ,
+                    left: 0
+                }));
             });
 
             canvas.stateful = false;

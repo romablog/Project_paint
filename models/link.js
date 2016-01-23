@@ -28,7 +28,7 @@ schema.statics.checkLink = function(username, callback) {
     var Link = this;
     async.waterfall([
         function(callback) {
-            Link.find({username: username}, callback);
+            Link.findOne({username: username}, callback);
         },
         function(lin, callback) {
             if (lin) {
@@ -45,7 +45,7 @@ schema.statics.addlink = function(username, link, deleteHash, callback) {
     console.log("add Hello");
     async.waterfall([
         function(callback) {
-            Link.find({username: username}, callback);
+            Link.findOne({username: username}, callback);
         },
         function(user, callback) {
             if (user) {
