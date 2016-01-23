@@ -26,14 +26,13 @@ var schema = new Schema({
 
 schema.statics.checkLink = function(username, callback) {
     var Link = this;
-
     async.waterfall([
         function(callback) {
-            Link.Find({username: username}, callback);
+            Link.find({username: username}, callback);
         },
-        function(user, callback) {
-            if (user) {
-                callback(user.link)
+        function(lin, callback) {
+            if (lin) {
+                callback(lin.link)
             } else {
                 callback("No Link");
             }
