@@ -1,7 +1,3 @@
-/**
- * Created by Андрей on 21.01.2016.
- */
-
 var v1 = angular.module('myApp.view1');
 
 v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function($http, $interval, ImageService) {
@@ -13,7 +9,6 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                 backgroundColor : "#414476"
 
             });
-
             $http.get('/link').then(function(responce){
                 console.log(responce);
                 var savedCanvas = new Image();
@@ -24,8 +19,6 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                     left: 0
                 }));
             });
-
-
 
             canvas.stateful = false;
 
