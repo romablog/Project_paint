@@ -1,6 +1,5 @@
 <% layout('layout/page') -%>
 <% block('title', "Paint") %>
-<% block('script1', "view1/view1.js")%>
 
 <html lang="en" ng-app="myApp" class="no-js">
 <meta charset="utf-8">
@@ -9,9 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body ng-controller="View1Controller">
+
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
-<!--<script src="view1.js"></script>-->
+<script src="view1/view1.js"></script>
 <script src="view1/image-service.js"></script>
 <script src="view1/imagelist.js"></script>
 <script src="view1/fabric.js"></script>
@@ -22,17 +22,20 @@
 <script src="version/interpolate-filter.js"></script>
 
 <script src="/view1/appPaint.js"></script>
-<canvas id='c' canvas-directive></canvas>
 
+<canvas id='c' canvas-directive></canvas>
+<button ng-click="send()">Отправить</button>
 <div ng-controller="ImageListController">
     <div ng-repeat="image in images">
         <image-directive></image-directive>
         <script src="view1/drop-directive.js"></script>
     </div>
 </div>
-<button id="init" ng-click="init_image()" class="btn btn-info">Init image</button><br>
+<button id="init" ng-click="init_image()" class="btn btn-info">Init image</button>
+<br>
 <div style="display: inline-block; margin-left: 10px">
-    <button id="clear-canvas" class="btn btn-info" ng-click="Clear()">Clear</button><br>
+    <button id="clear-canvas" class="btn btn-info" ng-click="Clear()">Clear</button>
+    <br>
     <div id="output" style="min-height: 200px; white-space: pre; border: 1px solid black;" drop-directive>
         DROP
     </div>
