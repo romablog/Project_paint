@@ -29,7 +29,7 @@ exports.post = function(req, res, next) {
 
 exports.get = function(req, res, next) {
     Link.checkLink(res.locals.user.username, function(p_link){
-        if (p_link == "No link"){
+        if (p_link == "No Link"){
             res.status(404).send("Fuck off!")
         }
         else{
