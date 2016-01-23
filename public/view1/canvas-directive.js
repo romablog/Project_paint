@@ -16,7 +16,7 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
             $http.get('/link').then(function(responce){
                 console.log(responce);
                 var savedCanvas = new Image();
-                //savedCanvas.setAttribute('crossOrigin', 'anonymous');
+                savedCanvas.crossOrigin='Anonymous';
                 savedCanvas.src = responce.data;
                 canvas.add(new fabric.Image(savedCanvas,{
                     top: 0 ,

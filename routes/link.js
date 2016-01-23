@@ -33,7 +33,8 @@ exports.get = function(req, res, next) {
             res.status(404).send("Fuck off!")
         }
         else{
-            res.send(p_link)
+
+            res.send(p_link);
         }
     });
 };
