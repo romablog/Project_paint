@@ -12,22 +12,22 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                 isDrawingMode: true,
                 backgroundColor : "#fff"
             });
+
+            $http.get('/link').then(function(responce){
+                var savedCanvas = new Image();
+                savedCanvas.src = responce;
+                canvas.add(new fabric.Image(savedCanvas));
+            });
+
             canvas.stateful = false;
+
             var image = null;
             scope.is_hanging = false;
             //fabric.Object.prototype.transparentCorners = false;
 
-            scope.get = function() {
-                console.log('!!!');
-                return canvas.toDataURL({format: 'jpeg', quality: 0.3});
-
-            };
             scope.send = function() {
                 var url = canvas.toDataURL({format: 'jpeg', quality: 1});
                 console.log(JSON.stringify(url));
-                /*   var img = document.createElement('img');
-                 img.src = url;
-                 ImageService.image = img;*/
 
                 $http.post('/link', {data: url}).then(function(){console.log('Sent successfully!')}, function(){console.log('sth went wrong')});
             };
@@ -68,7 +68,6 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
             scope.$watch('brushwidth', function(newValue, oldValue) {
                 scope.Inc(newValue);
             });
-            scope.$watch('images.length');
 
 
             scope.init_image = function(flag) {
