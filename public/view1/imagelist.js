@@ -28,7 +28,8 @@ v1.controller("ImageListController", function($scope, ImageService) {
         var index = $scope.images.indexOf(image);
         $scope.images.splice(index, 1);
         console.log('trying to remove!');
-
+        if ($scope.images.length == 0)
+            $scope.init_image();
     };
     $scope.select = function(image) {
         ImageService.file = $scope.images[$scope.images.indexOf(image)].file;

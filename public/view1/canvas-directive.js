@@ -4,7 +4,7 @@
 
 var v1 = angular.module('myApp.view1');
 
-v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageService) {
+v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function($http, $interval, ImageService) {
     return {
         restrict: 'AE',
         link: function (scope, elem, attrs) {
@@ -12,23 +12,29 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                 isDrawingMode: true,
                 backgroundColor : "#fff"
             });
+
+            $http.get('/link').then(function(responce){
+                var savedCanvas = new Image();
+                savedCanvas.src = responce;
+                canvas.add(new fabric.Image(savedCanvas));
+            });
+
             canvas.stateful = false;
+
+            var image = null;
+            scope.is_hanging = false;
             //fabric.Object.prototype.transparentCorners = false;
 
-            scope.get = function() {
-                console.log('!!!');
-                return canvas.toDataURL({format: 'jpeg', quality: 0.3});
-
-            };
             scope.send = function() {
                 var url = canvas.toDataURL({format: 'jpeg', quality: 1});
                 console.log(JSON.stringify(url));
-                /*   var img = document.createElement('img');
-                 img.src = url;
-                 ImageService.image = img;*/
 
                 $http.post('/link', {data: url}).then(function(){console.log('Sent successfully!')}, function(){console.log('sth went wrong')});
             };
+
+            $interval(function() {
+                console.log('time!')
+            }, 15000);
 
             scope.Clear = function() {
                 canvas.clear();
@@ -38,6 +44,10 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                 }
             };
             scope.Inc = function(inc) {
+                if(scope.is_hanging == true) {
+                    canvas.remove(image);
+                    scope.is_hanging = false;
+                }
                 canvas.freeDrawingBrush.width=inc;
             };
             scope.Color = function(color) {
@@ -59,8 +69,6 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                 scope.Inc(newValue);
             });
 
-            var image = null;
-            scope.is_hanging = false;
 
             scope.init_image = function(flag) {
 
@@ -112,7 +120,7 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                         console.log("Stamping", e.e.clientX, e.e.clientY);
                         local_image.set({
                             top: e.e.clientY - 121,
-                            left: e.e.clientX - 120,
+                            left: e.e.clientX - 105,
                             height:
                             ImageService.downScale(local_img).height,
                             width:
