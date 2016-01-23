@@ -65,7 +65,7 @@ function deleteImage(url){
     oReq.addEventListener("load", function() {
         console.log("deletion succeeded");
     });
-    oReq.open("DELETE", "https://api.imgur.com/3/image/" + url);
+    oReq.open("DELETE", "http://api.imgur.com/3/image/" + url);
     oReq.send();
 }
 

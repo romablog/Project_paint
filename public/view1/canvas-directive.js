@@ -4,7 +4,7 @@
 
 var v1 = angular.module('myApp.view1');
 
-v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageService) {
+v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function($http, $interval, ImageService) {
     return {
         restrict: 'AE',
         link: function (scope, elem, attrs) {
@@ -13,6 +13,8 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                 backgroundColor : "#fff"
             });
             canvas.stateful = false;
+            var image = null;
+            scope.is_hanging = false;
             //fabric.Object.prototype.transparentCorners = false;
 
             scope.get = function() {
@@ -30,6 +32,10 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                 $http.post('/link', {data: url}).then(function(){console.log('Sent successfully!')}, function(){console.log('sth went wrong')});
             };
 
+            $interval(function() {
+                console.log('time!')
+            }, 15000);
+
             scope.Clear = function() {
                 canvas.clear();
                 if(scope.is_hanging == true) {
@@ -38,6 +44,10 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                 }
             };
             scope.Inc = function(inc) {
+                if(scope.is_hanging == true) {
+                    canvas.remove(image);
+                    scope.is_hanging = false;
+                }
                 canvas.freeDrawingBrush.width=inc;
             };
             scope.Color = function(color) {
@@ -58,9 +68,8 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
             scope.$watch('brushwidth', function(newValue, oldValue) {
                 scope.Inc(newValue);
             });
+            scope.$watch('images.length');
 
-            var image = null;
-            scope.is_hanging = false;
 
             scope.init_image = function(flag) {
 
@@ -112,7 +121,7 @@ v1.directive('canvasDirective', ['$http', 'ImageService', function($http, ImageS
                         console.log("Stamping", e.e.clientX, e.e.clientY);
                         local_image.set({
                             top: e.e.clientY - 121,
-                            left: e.e.clientX - 120,
+                            left: e.e.clientX - 105,
                             height:
                             ImageService.downScale(local_img).height,
                             width:
