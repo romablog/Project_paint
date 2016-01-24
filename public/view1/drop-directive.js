@@ -49,14 +49,6 @@ v1.directive("dropDirective", ['ImageService', function(ImageService) {
                     console.log("Processed", f);
                 }
                 ImageService.file = files[files.length - 1];
-
-
-                /*
-                var img = document.createElement("img");
-                console.log("Appending", ImageService.file);
-                img.src = URL.createObjectURL(ImageService.file);
-                elem.append(img);
-                */
             });
         }
     }

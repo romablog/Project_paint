@@ -1,20 +1,28 @@
-<nav class="navbar navbar-default" role="navigation">
-    <ul class="nav navbar-nav">
-        <li><a href="/">Main</a></li>
-        <% if (user) { %>
-        <li><a href="/paint">Paint</a></li>
-        <% } %>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <% if (user) { %>
-        <li>
-            <a href="" onclick="$('' + ' <form method=POST action=/logout/>').submit();return false">
-                Sign out
-            </a>
-        </li>
-        <% } else { %>
-        <li><a href="/registry">Sign up</a></li>
-        <li><a href="/login">Sign in</a></li>
-        <% } %>
-    </ul>
+<nav class="navbar navbar-inverse">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+           <a class="navbar-brand" href="/" style="font-size: 23px ">DW</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li><a href="/" style="font-size: 15px">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/paint" style="font-size: 15px">Canvas</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <% if (user) { %>
+                <li>
+                    <a href="" onclick="$('' + ' <form method=POST action=/logout/>').submit();return false" style="font-size: 15px">
+                        Sign out
+                    </a>
+                </li>
+                <% } else { %>
+                <li><a href="/registry" style="font-size: 15px">Sign up</a></li>
+                <li><a href="/login" style="font-size: 15px">Sign in</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
 </nav>

@@ -6,9 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <body ng-controller="View1Controller">
-
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
 <script src="view1/view1.js"></script>
@@ -16,41 +14,60 @@
 <script src="view1/imagelist.js"></script>
 <script src="view1/fabric.js"></script>
 <script src="view1/canvas-directive.js"></script>
-
 <script src="version/version.js"></script>
 <script src="version/version-directive.js"></script>
 <script src="version/interpolate-filter.js"></script>
-
 <script src="/view1/appPaint.js"></script>
-
-<canvas id='c' canvas-directive></canvas>
-<button ng-click="send()">Отправить</button>
-<div ng-controller="ImageListController">
-    <div ng-repeat="image in images">
-        <image-directive></image-directive>
-        <script src="view1/drop-directive.js"></script>
-    </div>
-</div>
-<button id="init" ng-click="init_image()" class="btn btn-info">Init image</button>
-<br>
-<div style="display: inline-block; margin-left: 10px">
-    <button id="clear-canvas" class="btn btn-info" ng-click="Clear()">Clear</button>
-    <br>
-    <div id="output" style="min-height: 200px; white-space: pre; border: 1px solid black;" drop-directive>
-        DROP
-    </div>
-    <div id="drawing-mode-options">
-        <button id="First width" class="btn btn-info" ng-click="FirstWidth()">First width</button>
-        <button id="Second width" class="btn btn-info" ng-click="SecondWidth()">Second width</button>
-        <button id="Third width" class="btn btn-info" ng-click="ThirdWidth()">Third width</button>
-        <label for="drawing-color">Line color:</label>
-        <input type="color" value="#005E7A" id="drawing-color" ng-model="brushcolor">
-    </div>
-</div>
+<table style="width: 100%">
+    <tr>
+        <td height="100px">
+            <ul id="drawing-mode-options" style="list-style-type: none;">
+                <li class="dropdown">
+                    <h4 href="#" class="dropdown-toggle text-warning" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 20px" >Brushes<span class="caret"></span></h4>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><button id="Small" class="btn btn-default text-warning" ng-click="FirstWidth()" style="font-size: 15px">Small</button></li>
+                        <li><button id="Second width" class="btn btn-default text-warning" ng-click="SecondWidth()" style="font-size: 15px">Medium</button></li>
+                        <li><button id="Third width" class="btn btn-default text-warning" ng-click="ThirdWidth()" style="font-size: 15px">Big</button></li>
+                    </ul>
+                </li>
+        </td>
+        <td height="400px" width="1000px" style="vertical-align: top" rowspan="4">
+        <canvas id='c' canvas-directive width="920px" height="400px"></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td height="100px">
+            <ul style="list-style-type: none">
+            <li class="dropdown">
+                <h4 href="#" class="dropdown-toggle text-warning" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 20px">Save/Clear<span class="caret"></span></h4>
+                <ul class="dropdown-menu" role="menu">
+                    <li><button ng-click="send()" class="btn btn-default text-warning" style="font-size: 15px">Save</button></li>
+                    <li><button id="clear-canvas" class="btn btn-default text-warning" ng-click="Clear()" style="font-size: 15px">Clear</button></li>
+                </ul>
+            </li>
+            </ul>
+        </td>
+    </tr>
+    <hr>
+    <tr>
+        <td height="100px" id="output" style="min-width: 180px; border: 1px dashed;" drop-directive>
+                <p style="text-align: center; text-decoration: underline; font-size: 12px" class="text-warning">Drop Area</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div ng-controller="ImageListController">
+                <div ng-repeat="image in images">
+                    <image-directive></image-directive>
+                    <script src="view1/drop-directive.js"></script>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
 </body>
 </html>
-
-
 
 
 

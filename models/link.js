@@ -26,14 +26,13 @@ var schema = new Schema({
 
 schema.statics.checkLink = function(username, callback) {
     var Link = this;
-
     async.waterfall([
         function(callback) {
-            Link.Find({username: username}, callback);
+            Link.findOne({username: username}, callback);
         },
-        function(user, callback) {
-            if (user) {
-                callback(user.link)
+        function(lin, callback) {
+            if (lin) {
+                callback(lin.link)
             } else {
                 callback("No Link");
             }
@@ -46,7 +45,7 @@ schema.statics.addlink = function(username, link, deleteHash, callback) {
     console.log("add Hello");
     async.waterfall([
         function(callback) {
-            Link.find({username: username}, callback);
+            Link.findOne({username: username}, callback);
         },
         function(user, callback) {
             if (user) {
@@ -65,7 +64,7 @@ function deleteImage(url){
     oReq.addEventListener("load", function() {
         console.log("deletion succeeded");
     });
-    oReq.open("DELETE", "https://api.imgur.com/3/image/" + url);
+    oReq.open("DELETE", "http://api.imgur.com/3/image/" + url);
     oReq.send();
 }
 
