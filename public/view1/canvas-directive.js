@@ -6,7 +6,7 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
         link: function (scope, elem, attrs) {
             var canvas = new fabric.Canvas(attrs.id, {
                 isDrawingMode: true,
-                backgroundColor : "#414476"
+                backgroundColor : "#3C5972"
 
             });
             $http.get('/link').then(function(responce){
@@ -24,7 +24,6 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
 
             var image = null;
             scope.is_hanging = false;
-            //fabric.Object.prototype.transparentCorners = false;
 
             scope.send = function() {
                 var url = canvas.toDataURL({format: 'jpeg', quality: 1});
@@ -33,9 +32,10 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                 $http.post('/link', {data: url}).then(function(){console.log('Sent successfully!')}, function(){console.log('sth went wrong')});
             };
 
-            $interval(function() {
-                console.log('time!')
-            }, 15000);
+            //$interval(function() {
+            //    scope.send();
+            //    console.log('time!')
+            //}, 3000000);
 
             scope.Clear = function() {
                 canvas.clear();
@@ -70,7 +70,6 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                 scope.Inc(newValue);
             });
 
-
             scope.init_image = function(flag) {
 
                 if (scope.is_hanging == false || flag == true) {
@@ -96,7 +95,6 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
 
             scope.brushcolor = '#0000CD';
             scope.brushwidth = 10;
-
 
             canvas.on('mouse:move', function(e) {
                 if (scope.is_hanging == true) {

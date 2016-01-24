@@ -45,7 +45,6 @@ v1.directive("dropDirective", ['ImageService', function(ImageService) {
 
                         };
                     })(f);
-
                     console.log("Processed", f);
                 }
                 ImageService.file = files[files.length - 1];

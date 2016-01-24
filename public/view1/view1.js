@@ -18,5 +18,3 @@ v1.controller('View1Controller', function($scope, ImageService) {
 
     console.log("time1");
 });
-
-

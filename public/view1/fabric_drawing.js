@@ -11,20 +11,7 @@
         drawingLineWidthEl = $('drawing-line-width'),
         clearEl = $('clear-canvas');
 
-  //  clearEl.onclick = function() { canvas.clear() };
-
-    //if (fabric.PatternBrush) {
-    //
-    //
-    //    var img = new Image();
-    //    //img.src = '../assets/honey_im_subtle.png';
-    //
-    //    //var texturePatternBrush = new fabric.PatternBrush(canvas);
-    //    //texturePatternBrush.source = img;
-    //}
-
     $('drawing-mode-selector').onchange = function() {
-
 
         if (this.value === 'texture') {
             canvas.freeDrawingBrush = texturePatternBrush;
@@ -36,7 +23,6 @@
         if (canvas.freeDrawingBrush) {
             canvas.freeDrawingBrush.color = drawingColorEl.value;
             canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-            //canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
         }
     };
 
