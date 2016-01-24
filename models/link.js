@@ -2,9 +2,6 @@ var async = require('async');
 var util = require('util');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-//var $ = require('jquery');
-
-
 var mongoose = require('../libs/mongoose'),
     Schema = mongoose.Schema;
 

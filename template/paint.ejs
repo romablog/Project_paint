@@ -1,4 +1,4 @@
-<% layout('layout/page') -%>
+<% layout('./layout/page') -%>
 <% block('title', "Paint") %>
 
 <html lang="en" ng-app="myApp" class="no-js">
@@ -18,7 +18,7 @@
 <script src="version/version-directive.js"></script>
 <script src="version/interpolate-filter.js"></script>
 <script src="/view1/appPaint.js"></script>
-<table style="width: 100%">
+<table style="width: 100%; padding-top: 50px">
     <tr>
         <td height="100px">
             <ul id="drawing-mode-options" style="list-style-type: none;">
@@ -31,8 +31,26 @@
                     </ul>
                 </li>
         </td>
-        <td height="400px" width="1000px" style="vertical-align: top" rowspan="4">
-        <canvas id='c' canvas-directive width="920px" height="400px"></canvas>
+        <td height="400px" width="1000px" style="vertical-align: top" rowspan="6">
+        <canvas id='c' canvas-directive width="920px" height="400px" style="padding-left: 5px"></canvas>
+        </td>
+    </tr>
+    <tr>
+        <td height="10px">
+            <div class="form-group">
+                <ul style="list-style-type: none">
+                    <li>
+                        <label for="brushcolor" class="text-warning" aria-expanded="false" style="font-size: 20px" ><h4>Brushes color:</h4></label>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td height="10px" align="center">
+            <div  style="width: 100px">
+                <input type="color" class="form-control" id="brushcolor" style="background-color: transparent" ng-model="brushcolor"/>
+            </div>
         </td>
     </tr>
     <tr>

@@ -1,8 +1,8 @@
 <% layout('./page') %>
 
-<p class="col-lg-offset-2">Enter name and password.</p>
+<p class="col-lg-offset-2">Please enter toyr name and password to sign in.</p>
 
-<form class="form-horizontal login-form" name="login-form">
+<form class="form-horizontal login-form" name="login-form" style="padding-top: 50px">
     <div class="form-group">
         <label for="input-username" class="col-lg-2 control-label">Name</label>
 
@@ -20,6 +20,7 @@
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-2">
             <button type="submit" class="btn btn-primary" data-loading-text="Sending..."><%=blocks.but%></button>
+            <button type="reset" class="btn btn-default">Cancel</button>
             <span class="help-block error"></span>
         </div>
     </div>

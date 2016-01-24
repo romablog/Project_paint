@@ -7,11 +7,7 @@ exports.post = function(req, res, next) {
     upload(canvas);
 
     function upload(file) {
-        //if (!file || !file.type.match(/image.*/)) return;
-        //console.log(file);
         var b64 = file.substr(23);
-        //console.log(b64);
-        //imgur.setClientId('');
         imgur.uploadBase64(b64)
             .then(function (json) {
                 //console.log(json.data);

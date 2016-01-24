@@ -5,7 +5,6 @@ var config = require('./config');
 var mongoose = require('./libs/mongoose');
 var log = require('./libs/log')(module);
 var HttpError = require('./error').HttpError;
-
 var app = express();
 
 app.engine('ejs', require('ejs-locals'));
@@ -60,8 +59,6 @@ app.use(function(err, req, res, next) {
     }
   }
 });
-
-//Test
 http.createServer(app).listen(config.get('port'), function(){
   log.info('Express server listening on port ' + config.get('port'));
 });

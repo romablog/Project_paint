@@ -90,7 +90,6 @@ schema.statics.registration = function(username, password, callback) {
 
 exports.User = mongoose.model('User', schema);
 
-
 function AuthError(message) {
   Error.apply(this, arguments);
   Error.captureStackTrace(this, AuthError);
@@ -99,9 +98,5 @@ function AuthError(message) {
 }
 
 util.inherits(AuthError, Error);
-
 AuthError.prototype.name = 'AuthError';
-
 exports.AuthError = AuthError;
-
-

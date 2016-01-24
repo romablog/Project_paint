@@ -28,17 +28,3 @@ function requireModels(callback) {
         mongoose.models[modelName].ensureIndexes(callback);
     }, callback);
 }
-
-function createUsers(callback) {
-
-    var users = [
-        {username: 'Vasya', password: 'SuperVasya'},
-        {username: 'Vasya', password: 'SuperPetya'},
-        {username: 'Admin', password: 'SuperAdmin'}
-    ];
-
-    async.each(users, function(userData, callback) {
-        var user = new mongoose.models.User(userData);
-        user.save(callback);
-    }, callback);
-}
