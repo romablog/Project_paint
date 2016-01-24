@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf44605e-a565-405c-816d-f02055f1e5c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/layout/page.ejs" afterPath="$PROJECT_DIR$/template/layout/page.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/view1/imagelist.js" afterPath="$PROJECT_DIR$/public/view1/imagelist.js" />
     </list>
     <ignored path="1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +54,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="canvas-directive.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="canvas-directive.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/view1/canvas-directive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.8972222">
+            <state vertical-scroll-proportion="0.0">
               <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imagelist.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/view1/imagelist.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4722222">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,7 +128,6 @@
         <option value="$PROJECT_DIR$/public/view1/drop-directive.js" />
         <option value="$PROJECT_DIR$/public/view1/fabric_drawing.js" />
         <option value="$PROJECT_DIR$/public/view1/image-service.js" />
-        <option value="$PROJECT_DIR$/public/view1/imagelist.js" />
         <option value="$PROJECT_DIR$/public/view1/view1.js" />
         <option value="$PROJECT_DIR$/routes/link.js" />
         <option value="$PROJECT_DIR$/routes/login.js" />
@@ -130,6 +139,7 @@
         <option value="$PROJECT_DIR$/public/view1/canvas-directive.js" />
         <option value="$PROJECT_DIR$/template/paint.ejs" />
         <option value="$PROJECT_DIR$/template/layout/page.ejs" />
+        <option value="$PROJECT_DIR$/public/view1/imagelist.js" />
       </list>
     </option>
   </component>
@@ -238,19 +248,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/view1" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/template" />
-      <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/view1" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/template/view1" />
       <recent name="$PROJECT_DIR$/template" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/view1" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/template" />
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/models" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
@@ -392,7 +402,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453648107487</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="There is no 404 error in page!">
+      <created>1453654520941</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1453654520941</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -447,7 +463,8 @@
     <MESSAGE value="The final one!" />
     <MESSAGE value="Comments on the timer 'cause we are trying not to crash the cloud. And i changed BG color of the canvas. Now it's pretty cool. So it's really the final commit and the first good message of our all commits." />
     <MESSAGE value="Closed ul." />
-    <option name="LAST_COMMIT_MESSAGE" value="Closed ul." />
+    <MESSAGE value="There is no 404 error in page!" />
+    <option name="LAST_COMMIT_MESSAGE" value="There is no 404 error in page!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,6 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.86796534">
           <caret line="10" column="126126" selection-start-line="10" selection-start-column="126126" selection-end-line="10" selection-end-column="126126" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -554,6 +572,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4727273">
           <caret line="6534" column="17" selection-start-line="6534" selection-start-column="17" selection-end-line="6534" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -664,14 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7174515">
           <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/view1/imagelist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -804,10 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/paint.ejs">
+    <entry file="file://$PROJECT_DIR$/public/view1/canvas-directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -820,10 +831,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/view1/canvas-directive.js">
+    <entry file="file://$PROJECT_DIR$/template/paint.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8972222">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/view1/imagelist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4722222">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>

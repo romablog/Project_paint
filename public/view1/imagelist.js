@@ -3,7 +3,7 @@ var v1 = angular.module('myApp.view1');
 v1.directive("imageDirective", ['ImageService', function(ImageService) {
     return {
         restrict : "AE",
-        template: '<span><h6>{{image.stats.name}}</h6><img ng-src="{{image.URL}}" ng-click="select(image)"/><button ng-click="remove(image)">X</button></span>',
+        template: '<span><h6>{{image.stats.name}}</h6><img ng-src="{{image.URL}}" ng-click="select(image)" class="btn btn-default text-warning"/><button ng-click="remove(image)">X</button></span>',
         link: function(scope, elem) {
         }
     }
