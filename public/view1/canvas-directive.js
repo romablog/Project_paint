@@ -6,7 +6,7 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
         link: function (scope, elem, attrs) {
             var canvas = new fabric.Canvas(attrs.id, {
                 isDrawingMode: true,
-                backgroundColor : "#414476"
+                backgroundColor : "#3C5972"
 
             });
             $http.get('/link').then(function(responce){
