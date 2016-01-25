@@ -4,7 +4,6 @@ v1.directive("imageDirective", ['ImageService', function(ImageService) {
     return {
         restrict : "AE",
         template: '<li>' +
-        '<h6>{{image.stats.name}}</h6>' +
         '<span>' +
         '<img ng-src="{{image.URL}}" ng-click="select(image)" style="max-width: 220px; max-height: 100px;"/>' +
         '<button ng-click="remove(image)" class="btn btn-default">X</button>' +
