@@ -75,10 +75,13 @@ v1.directive('canvasDirective', ['$http', '$interval', 'ImageService', function(
                 if (scope.is_hanging == false || flag == true) {
                     var img = new Image();
                     img.onload = function () {
+                        canvas.remove(image);
                         image = new fabric.Image(img);
                         image.set({
                             height: ImageService.downScale(img).height,
-                            width: ImageService.downScale(img).width
+                            width: ImageService.downScale(img).width,
+                            top: canvas.height,
+                            left: canvas.width
                         });
                         canvas.add(image);
                         scope.is_hanging = true;
