@@ -71,7 +71,7 @@
     <tr>
         <td drop-directive style="width: 240px">
             <p style="text-align: center; font-size: 20px; padding-right: 40px" class="text-warning">Drop Area</p>
-            <div ng-controller="ImageListController" style="width: 200px; max-height: 300px; overflow: auto;">
+            <div ng-controller="ImageListController" style="width: 200px; max-height: 300px; overflow: auto; overflow">
                 <script src="view1/drop-directive.js"></script>
                 <div ng-repeat="image in images">
                     <image-directive></image-directive>
@@ -81,5 +81,22 @@
     </tr>
 </table>
 <hr>
+<style>
+
+    body { scrollbar-face-color:#5997CA;
+
+        scrollbar-shadow-color: #ffffff;
+
+        scrollbar-highlight-color: #ffffff;
+
+        scrollbar-3dlight-color: #5997CA;
+
+        scrollbar-darkshadow-color: #5997CA;
+
+        scrollbar-track-color: #F6F6F6;
+
+        scrollbar-arrow-color: #F6F6F6; }
+
+</style>
 </body>
 </html>
